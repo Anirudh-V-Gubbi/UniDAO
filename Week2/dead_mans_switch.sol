@@ -22,7 +22,7 @@ contract DeadMansSwitch {
         return (block.number - lastActiveBlock) <= 10;
     }
     
-    function transferFunds() public {
+    function transferFunds() public payable {
         require(!isOwnerAlive());
         selfdestruct(payable(beneficiary));
     }
